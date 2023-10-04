@@ -1,0 +1,2 @@
+# minio-loongarch64
+ 
