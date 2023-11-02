@@ -1,6 +1,6 @@
-FROM golang:1.20-buster AS builder-minio
+FROM golang:1.21-buster AS builder-minio
 ARG TARGETARCH
-ARG MINIO_VERSION=RELEASE.2023-06-09T07-32-12Z
+ARG MINIO_VERSION=RELEASE.2023-11-01T18-37-25Z
 
 WORKDIR /opt
 RUN set -ex \
@@ -9,7 +9,6 @@ RUN set -ex \
 ARG GOPROXY=https://goproxy.cn,direct
 WORKDIR /opt/minio
 RUN set -ex \
-    && sed -i 's@minisign@# minisign@g' dockerscripts/verify-minio.sh \
     && MINIO_RELEASE="RELEASE" make build \
     && cp minio minio.${MINIO_VERSION} \
     && echo $(sha256sum minio.${MINIO_VERSION}) > minio.sha256sum \
