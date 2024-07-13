@@ -1,6 +1,6 @@
-FROM jumpserver/golang:1.21-buster AS builder-minio
+FROM jumpserver/golang:1.22-buster AS builder-minio
 ARG TARGETARCH
-ARG MINIO_VERSION=RELEASE.2023-11-01T18-37-25Z
+ARG MINIO_VERSION=RELEASE.2024-07-13T01-46-15Z
 
 WORKDIR /opt
 RUN set -ex \
